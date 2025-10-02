@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Claudia Amarilla</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" >
+</head>
+<body>
+    <!-- HEADER DE NAVEGACIÓN -->
+    <header class="header-principal-nav">
+        <nav class="navegacion">
+            <div class="nav-logo">
+                <a href="index.html" class="logo">Claudia Amarilla</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="proyectos.html" class="nav-link">Proyectos</a></li>
+                <li><a href="sobre-mi.html" class="nav-link">Sobre Mí</a></li>
+                <li><a href="contacto.html" class="nav-link active">Contacto</a></li>
+            </ul>
+            <div class="menu-hamburguesa">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="pagina-contacto">
+        <div class="contenedor-contacto">
+            
+            <!-- Header Contacto -->
+            <div class="contacto-header">
+                <h1 class="titulo-principal">Hablemos</h1>
+                <p class="subtitulo-contacto">
+                    ¿Tienes una idea, proyecto o simplemente quieres conversar sobre desarrollo web? 
+                    Estoy aquí para escucharte y colaborar contigo.
+                </p>
+            </div>
+
+            <!-- Grid Principal -->
+            <div class="contacto-grid">
+                
+                <!-- Información de Contacto -->
+                <div class="contacto-info">
+                    <h2>Información de Contacto</h2>
+                    
+                    <div class="info-item">
+                        <div class="info-icono">📧</div>
+                        <div class="info-contenido">
+                            <h3>Email</h3>
+                            <a href="mailto:creativwebclaudia@gmail.com" class="info-link">
+                                creativwebclaudia@gmail.com
+                            </a>
+                            <p>Respuesta en menos de 24 horas</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icono">💼</div>
+                        <div class="info-contenido">
+                            <h3>LinkedIn</h3>
+                            <a href="https://linkedin.com/in/Claudia-Amarilla" target="_blank" class="info-link">
+                                Conectemos profesionalmente
+                            </a>
+                            <p>Mantengámonos en contacto</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icono">🐙</div>
+                        <div class="info-contenido">
+                            <h3>GitHub</h3>
+                            <a href="https://github.com/claudia-amarilla1966" target="_blank" class="info-link">
+                                Mis proyectos de código abierto
+                            </a>
+                            <p>Explora mi trabajo</p>
+                        </div>
+                    </div>
+
+                    <!-- Disponibilidad -->
+                    <div class="disponibilidad">
+                        <h3>🕒 Disponibilidad</h3>
+                        <p>Actualmente aceptando nuevos proyectos freelance</p>
+                        <div class="estado-proyectos">
+                            <span class="estado activo">Disponible para colaborar</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Formulario de Contacto -->
+                <div class="contacto-formulario">
+                    <h2>Envíame un Mensaje</h2>
+                    <form class="formulario-contacto" id="formularioContacto">
+                        <div class="form-grupo">
+                            <label for="nombre">Nombre completo *</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="asunto">Asunto *</label>
+                            <select id="asunto" name="asunto" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="presupuesto">Solicitud de Presupuesto</option>
+                                <option value="colaboracion">Propuesta de Colaboración</option>
+                                <option value="consulta">Consulta General</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" rows="6" placeholder="Cuéntame sobre tu proyecto, ideas o consultas..." required></textarea>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label class="checkbox-label">
+                                <input type="checkbox" required>
+                                <span class="checkmark"></span>
+                                Acepto la política de privacidad y el tratamiento de mis datos
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-enviar">
+                            <span class="btn-texto">Enviar Mensaje</span>
+                            <span class="btn-cargando" style="display: none;">Enviando...</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- FAQ Rápida -->
+            <div class="faq-rapida">
+                <h2>Preguntas Frecuentes</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>¿Cuál es tu tiempo de respuesta?</h3>
+                        <p>Normalmente respondo en menos de 24 horas. Los fines de semana puede tomar un poco más.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>¿Trabajas con presupuestos ajustados?</h3>
+                        <p>Sí, podemos encontrar soluciones que se adapten a diferentes presupuestos. ¡Hablemos!</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>¿Ofreces mantenimiento post-desarrollo?</h3>
+                        <p>Absolutamente. Ofrezco planes de mantenimiento para mantener tu sitio actualizado y seguro.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>

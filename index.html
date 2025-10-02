@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Claudia Amarilla · Desarrolladora Web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Quicksand&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <!-- HEADER DE NAVEGACIÓN -->
+    <header class="header-principal-nav">
+        <nav class="navegacion">
+            <div class="nav-logo">
+                <a href="index.html" class="logo">Claudia Amarilla</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html"     class="nav-link">Inicio</a></li>
+                <li><a href="proyectos.html" class="nav-link">Proyectos</a></li>
+                <li><a href="sobre-mi.html"  class="nav-link">Sobre Mí</a></li>
+                <li><a href="contacto.html"  class="nav-link">Contacto</a></li>
+            </ul>
+            <div class="menu-hamburguesa">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="presentacion-libre">
+        <!-- Header unificado -->
+        <div class="bloque header-principal">
+            <div class="foto-container">
+                <img src="./imagenes/claudia.jpg" alt="Claudia" loading="lazy" class="foto-perfil" />
+            </div>
+            <div class="titulo-container">
+                <h1>Hola, soy Claudia Amarilla</h1>
+                <p class="subtitulo">Desarrolladora web freelance</p>
+            </div>
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="bloque frase-inicial">
+            <p>“Cada proyecto que creo es una forma de acompañar, de escuchar, de construir con sentido.”</p>
+        </div>
+
+        <div class="bloque texto-principal">
+            <p>
+                Especializada en crear sitios funcionales, cálidos y humanos.
+                Cada proyecto que realizo nace del encuentro entre lo técnico y lo emocional, buscando soluciones
+                simples que reflejen identidad y propósito.
+            </p>
+        </div>
+
+        <div class="bloque destacado-bloque">
+            <div class="destacado">
+                <p id="texto-destacado" aria-live="polite"></p>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+
+</html>

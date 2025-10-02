@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mí - Claudia Amarilla</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" >
+</head>
+<body>
+    <!-- HEADER DE NAVEGACIÓN -->
+    <header class="header-principal-nav">
+        <nav class="navegacion">
+            <div class="nav-logo">
+                <a href="index.html" class="logo">Claudia Amarilla</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="proyectos.html" class="nav-link">Proyectos</a></li>
+                <li><a href="sobre-mi.html" class="nav-link active">Sobre Mí</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+            <div class="menu-hamburguesa">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="pagina-sobre-mi">
+        <div class="contenedor-sobre-mi">
+            
+            <!-- Header Sobre Mí -->
+            <div class="sobre-mi-header">
+                <div class="sobre-mi-foto">
+                    <img src="./imagenes/claudia.jpg" alt="Claudia" loading="lazy">
+                </div>
+                <div class="sobre-mi-intro">
+                    <h1 class="titulo-principal">Mi Historia</h1>
+                    <p class="subtitulo-destacado">
+                        De la creatividad al código: un camino de transformación digital
+                    </p>
+                </div>
+            </div>
+
+            <!-- Mi Filosofía -->
+            <div class="seccion-filosofia">
+                <h2>Mi Filosofía de Desarrollo</h2>
+                <div class="filosofia-grid">
+                    <div class="filosofia-card">
+                        <div class="filosofia-icono">💫</div>
+                        <h3>Diseño con Propósito</h3>
+                        <p>Cada línea de código debe servir a una necesidad humana, creando experiencias digitales que conecten y transformen.</p>
+                    </div>
+                    <div class="filosofia-card">
+                        <div class="filosofia-icono">🤝</div>
+                        <h3>Desarrollo Colaborativo</h3>
+                        <p>Creo en el trabajo conjunto con mis clientes, entendiendo sus visiones y traduciéndolas en soluciones técnicas.</p>
+                    </div>
+                    <div class="filosofia-card">
+                        <div class="filosofia-icono">🌱</div>
+                        <h3>Aprendizaje Continuo</h3>
+                        <p>La tecnología evoluciona constantemente, y yo evoluciono con ella, manteniéndome actualizada en las mejores prácticas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mi Journey -->
+            <div class="seccion-journey">
+                <h2>Mi Camino en el Desarrollo Web</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-fecha">2023</div>
+                        <div class="timeline-contenido">
+                            <h3>Inmersión en el Desarrollo Web</h3>
+                            <p>Comienzo mi formación profesional en desarrollo web, explorando HTML, CSS y JavaScript desde sus fundamentos.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-fecha">2024</div>
+                        <div class="timeline-contenido">
+                            <h3>Certificación y Primeros Proyectos</h3>
+                            <p>Completo mi certificación en Desarrollo Web en Coderhouse y desarrollo mis primeros proyectos reales: SIFATT y PIN GRUAS.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-fecha">Presente</div>
+                        <div class="timeline-contenido">
+                            <h3>Desarrolladora Web Freelance</h3>
+                            <p>Me especializo en crear sitios web funcionales y cálidos, combinando precisión técnica con sensibilidad humana.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lo que me inspira -->
+            <div class="seccion-inspiracion">
+                <h2>Lo que me Inspira</h2>
+                <div class="inspiracion-grid">
+                    <div class="inspiracion-item">
+                        <h3>💻 Tecnología con Rostro Humano</h3>
+                        <p>Crear soluciones digitales que prioricen la experiencia humana sobre la complejidad técnica.</p>
+                    </div>
+                    <div class="inspiracion-item">
+                        <h3>🎨 Diseño que Comunica</h3>
+                        <p>Entender que cada color, tipografía y espacio en blanco cuenta una historia y genera emociones.</p>
+                    </div>
+                    <div class="inspiracion-item">
+                        <h3>🚀 Impacto Real</h3>
+                        <p>Saber que mi trabajo ayuda a pequeños negocios y emprendedores a crecer en el mundo digital.</p>
+                    </div>
+                    <div class="inspiracion-item">
+                        <h3>📚 Aprendizaje Colectivo</h3>
+                        <p>Compartir conocimiento y aprender de una comunidad de desarrolladores apasionados.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="seccion-cta">
+                <h2>¿Tienes un proyecto en mente?</h2>
+                <p>Me encantaría escuchar tu idea y trabajar juntos para hacerla realidad.</p>
+                <div class="cta-buttons">
+                    <a href="proyectos.html" class="btn-proyecto btn-live">Ver Mis Proyectos</a>
+                    <a href="contacto.html" class="btn-proyecto btn-code">Hablemos</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
