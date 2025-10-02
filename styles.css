@@ -171,7 +171,7 @@ body::before {
     grid-auto-rows: auto;
     gap: 30px;
     max-width: var(--ancho-maximo);
-    margin: 80px auto;
+    margin: 100px auto 80px;
     padding: var(--padding-escritorio);
     align-items: start;
 }
@@ -317,7 +317,7 @@ body::before {
         transform: translateY(0) scale(1);
     }
     50% {
-        transform: translateY(-8px) scale(1.02);
+        transform: translateY(-5px) scale(1.02);
     }
 }
 
@@ -1625,5 +1625,36 @@ body::before {
     
     .btn-enviar {
         padding: 15px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .presentacion-libre {
+        margin: 90px auto 30px; /* ↑ Más margen superior para el header fijo */
+        padding-top: 20px;
+    }
+    
+    .header-principal {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+        margin-bottom: 30px;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .foto-perfil {
+        width: 150px;
+        height: 150px;
+        animation: flotar 4s ease-in-out infinite;
+        margin: 0 auto;
+    }
+    
+    .header-principal-nav {
+        height: 70px; /* Asegurar altura consistente */
+    }
+    
+    .header-principal-nav.scrolled {
+        height: 60px;
     }
 }
