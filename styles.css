@@ -2028,6 +2028,82 @@ body::before {
         padding: 16px 30px;
     }
 }
+
+/* ===== FIX PARA MÓVILES PEQUEÑOS (Samsung A04) ===== */
+@media (max-width: 480px) {
+    .pagina-contacto-elegante {
+        padding: 80px 15px 40px;
+    }
+    
+    .contenedor-contacto-elegante {
+        padding: 0 10px;
+    }
+    
+    .tarjeta-contacto-glass,
+    .tarjeta-formulario-glass {
+        padding: 25px 20px;
+        margin: 0 -5px;
+        border-radius: 16px;
+    }
+    
+    .contenido-contacto-grid {
+        gap: 25px;
+    }
+    
+    .contacto-header-elegante {
+        margin-bottom: 50px;
+        padding: 0 10px;
+    }
+    
+    .titulo-contacto-principal {
+        font-size: 2.2em;
+        line-height: 1.2;
+    }
+    
+    .subtitulo-contacto {
+        font-size: 1.1em;
+        padding: 0 5px;
+    }
+    
+    /* Ajustes específicos para las tarjetas de contacto */
+    .canal-contacto-item {
+        padding: 20px 15px;
+        margin: 0 -5px;
+    }
+    
+    .canal-icono {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5em;
+    }
+    
+    /* Asegurar que el contenido no se salga */
+    .footer-elegante {
+        margin-top: 40px;
+    }
+}
+
+/* Fix extra para pantallas muy pequeñas */
+@media (max-width: 360px) {
+    .pagina-contacto-elegante {
+        padding: 70px 10px 30px;
+    }
+    
+    .tarjeta-contacto-glass,
+    .tarjeta-formulario-glass {
+        padding: 20px 15px;
+        margin: 0 -3px;
+    }
+    
+    .titulo-contacto-principal {
+        font-size: 2em;
+    }
+    
+    .btn-enviar-elegante {
+        padding: 16px 20px;
+        font-size: 1em;
+    }
+}
 /* ===== FOOTER ELEGANTE ===== */
 .footer-elegante {
     background: rgba(10, 10, 10, 0.95);
