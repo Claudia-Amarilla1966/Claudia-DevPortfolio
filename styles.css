@@ -1,4 +1,4 @@
-/* ===== VARIABLES GLASS NEÓN ROJO Y NEGRO ===== */
+/* ===== VARIABLES GLOBALES ===== */
 :root {
     --color-fondo: #0a0a0a;
     --color-texto: #e0e0e0;
@@ -6,8 +6,6 @@
     --color-accent: #ff0033;
     --color-accent-hover: #ff3355;
     --color-subtitulo: #cccccc;
-    --color-caja: rgba(255, 255, 255, 0.1);
-    --color-caja-claro: rgba(255, 255, 255, 0.05);
     --color-borde: rgba(255, 0, 51, 0.3);
     
     --fuente-principal: "Quicksand", sans-serif;
@@ -46,7 +44,6 @@ body.loaded {
     opacity: 1;
 }
 
-/* Efecto de partículas en fondo */
 body::before {
     content: '';
     position: fixed;
@@ -62,7 +59,62 @@ body::before {
     z-index: -1;
 }
 
-/* ===== HEADER GLASS NEÓN ===== */
+/* ===== ANIMACIONES GLOBALES ===== */
+@keyframes flotar {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-5px) scale(1.02); }
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+@keyframes titleGlow {
+    0% { 
+        text-shadow: 0 0 20px rgba(255, 0, 51, 0.5), 0 0 40px rgba(255, 0, 51, 0.3); 
+    }
+    100% { 
+        text-shadow: 0 0 30px rgba(255, 0, 51, 0.8), 0 0 60px rgba(255, 0, 51, 0.5), 0 0 80px rgba(255, 0, 51, 0.3); 
+    }
+}
+
+@keyframes buttonPulse {
+    0%, 100% { 
+        box-shadow: 
+            0 8px 20px rgba(255, 0, 51, 0.25),
+            0 0 0 1px rgba(255, 0, 51, 0.2);
+    }
+    50% { 
+        box-shadow: 
+            0 8px 25px rgba(255, 0, 51, 0.4), 
+            0 0 15px rgba(255, 0, 51, 0.2),
+            0 0 0 1px rgba(255, 0, 51, 0.3);
+    }
+}
+
+@keyframes iconFloat {
+    0%, 100% { transform: scale(1.1) translateY(0); }
+    50% { transform: scale(1.1) translateY(-2px); }
+}
+
+@keyframes pulseLive {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        background-position: 0% 50%;
+        text-shadow: 0 0 10px rgba(255, 0, 51, 0.3);
+    }
+    50% {
+        background-position: 100% 50%;
+        text-shadow: 0 0 20px rgba(255, 0, 51, 0.5);
+    }
+}
+
+/* ===== HEADER Y NAVEGACIÓN ===== */
 .header-principal-nav {
     position: fixed;
     top: 0;
@@ -152,7 +204,6 @@ body::before {
     transition: all 0.3s ease;
 }
 
-/* Header scroll */
 .header-principal-nav.scrolled {
     background: rgba(10, 10, 10, 0.95);
     box-shadow: var(--glass-shadow);
@@ -162,7 +213,7 @@ body::before {
     height: 60px;
 }
 
-/* ===== LAYOUT PRINCIPAL ===== */
+/* ===== PÁGINA INICIO ===== */
 .presentacion-libre {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -173,7 +224,6 @@ body::before {
     align-items: start;
 }
 
-/* ===== HEADER PRINCIPAL ===== */
 .header-principal {
     grid-column: 3 / 11;
     display: flex;
@@ -216,7 +266,6 @@ body::before {
     text-shadow: var(--neon-glow);
 }
 
-/* ===== BLOQUES DE CONTENIDO ===== */
 .frase-inicial {
     grid-column: 2 / 7;
     font-style: italic;
@@ -249,7 +298,6 @@ body::before {
     text-align: justify;
 }
 
-/* ===== BLOQUE DESTACADO ===== */
 .destacado-bloque {
     grid-column: 7 / 12;
     transform: translateY(10px);
@@ -283,7 +331,6 @@ body::before {
     box-shadow: var(--neon-glow);
 }
 
-/* Efecto typewriter */
 #texto-destacado::after {
     content: "|";
     animation: blink 1s infinite;
@@ -292,103 +339,21 @@ body::before {
     text-shadow: var(--neon-glow);
 }
 
-/* ===== ANIMACIONES ===== */
-@keyframes flotar {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-5px) scale(1.02); }
-}
-
-@keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-}
-
-/* ===== MEDIA QUERIES ===== */
-@media (max-width: 768px) {
-    .navegacion {
-        padding: 0 20px;
-    }
-    
-    .menu-hamburguesa {
-        display: flex;
-    }
-    
-    .nav-menu {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        padding-top: 60px;
-        gap: 30px;
-        transition: left 0.3s ease;
-        border-right: 1px solid var(--color-borde);
-    }
-    
-    .nav-menu.active {
-        left: 0;
-    }
-    
-    .nav-link {
-        font-size: 1.3em;
-        padding: 10px 0;
-    }
-    
-    .header-principal-nav.scrolled .nav-menu {
-        top: 60px;
-        height: calc(100vh - 60px);
-    }
-
-    .presentacion-libre {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: var(--padding-movil);
-        margin: 90px auto 30px;
-        padding-top: 20px;
-    }
-    
-    .header-principal,
-    .frase-inicial,
-    .texto-principal,
-    .destacado-bloque {
-        grid-column: 1;
-        transform: none;
-    }
-    
-    .header-principal {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-    
-    .destacado {
-        height: 180px;
-        padding: 20px;
-    }
-    
-    .titulo-container h1 {
-        font-size: 2.5em;
-    }
-}
-
-/* ===== PÁGINA DE PROYECTOS GLASS ===== */
+/* ===== PÁGINA PROYECTOS ===== */
 .pagina-proyectos {
     min-height: 100vh;
     background: linear-gradient(135deg, #000000 0%, #1a0000 50%, #000000 100%);
     padding: 80px 20px;
+    margin-bottom: 0 !important;
+    padding-bottom: 40px;
 }
 
 .contenedor-proyectos {
     max-width: var(--ancho-maximo);
     margin: 0 auto;
+    padding-bottom: 0;
 }
 
-/* Header de proyectos */
 .proyectos-header {
     text-align: center;
     margin-bottom: 80px;
@@ -426,7 +391,6 @@ body::before {
     opacity: 0.9;
 }
 
-/* Grid de proyectos */
 .grid-proyectos {
     display: grid;
     gap: 60px;
@@ -434,7 +398,6 @@ body::before {
     margin: 0 auto 100px;
 }
 
-/* Tarjeta de proyecto */
 .card-proyecto-nueva {
     background: var(--glass-bg);
     backdrop-filter: blur(25px);
@@ -468,7 +431,6 @@ body::before {
     box-shadow: var(--glass-shadow), 0 20px 40px rgba(255, 0, 51, 0.1);
 }
 
-/* Contenedor de imagen */
 .proyecto-imagen-container {
     height: 320px;
     overflow: hidden;
@@ -488,7 +450,6 @@ body::before {
     transform: scale(1.05);
 }
 
-/* Caso especial para pin-gruas */
 .proyecto-imagen-container.pin-gruas {
     height: 350px;
 }
@@ -501,7 +462,6 @@ body::before {
     transform: scale(1.02);
 }
 
-/* Overlay */
 .proyecto-overlay {
     position: absolute;
     top: 20px;
@@ -520,7 +480,6 @@ body::before {
     text-shadow: var(--neon-glow);
 }
 
-/* Contenido del proyecto */
 .proyecto-contenido-nuevo {
     padding: 40px;
 }
@@ -542,7 +501,6 @@ body::before {
     opacity: 0.9;
 }
 
-/* Logros */
 .proyecto-logros-mejorados {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -585,7 +543,6 @@ body::before {
     transform: rotate(10deg);
 }
 
-/* Tecnologías */
 .proyecto-metadata {
     margin-bottom: 35px;
 }
@@ -614,7 +571,6 @@ body::before {
     transform: translateY(-2px);
 }
 
-/* Botones */
 .proyecto-acciones {
     display: flex;
     justify-content: flex-start;
@@ -667,7 +623,6 @@ body::before {
     filter: drop-shadow(0 0 5px rgba(255, 0, 51, 0.3));
 }
 
-/* Sección de habilidades */
 .habilidades-section-mejorada {
     background: var(--glass-bg);
     backdrop-filter: blur(25px);
@@ -764,132 +719,21 @@ body::before {
     transform: translateX(5px);
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 968px) {
-    .grid-proyectos {
-        gap: 40px;
-        margin-bottom: 80px;
-    }
-    
-    .proyecto-contenido-nuevo {
-        padding: 30px;
-    }
-    
-    .proyecto-contenido-nuevo h3 {
-        font-size: 1.8em;
-    }
-    
-    .proyecto-logros-mejorados {
-        grid-template-columns: 1fr;
-    }
-    
-    .habilidades-section-mejorada {
-        padding: 60px 30px;
-    }
-    
-    .habilidades-grid-mejorado {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    .proyectos-header {
-        margin-bottom: 60px;
-    }
-    
-    .titulo-principal {
-        font-size: 2.5em;
-    }
-    
-    .descripcion-proyectos {
-        font-size: 1.1em;
-        padding: 0 10px;
-    }
-    
-    .proyecto-imagen-container {
-        height: 250px;
-    }
-    
-    .proyecto-contenido-nuevo {
-        padding: 25px;
-    }
-    
-    .proyecto-contenido-nuevo h3 {
-        font-size: 1.6em;
-    }
-    
-    .tecnologias-mejoradas {
-        justify-content: center;
-    }
-    
-    .proyecto-acciones {
-        justify-content: center;
-    }
-    
-    .btn-proyecto-elegante {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .habilidades-section-mejorada {
-        padding: 40px 20px;
-        margin-top: 40px;
-    }
-    
-    .habilidades-section-mejorada h2 {
-        font-size: 2em;
-        margin-bottom: 40px;
-    }
-}
-
-@media (max-width: 480px) {
-    .titulo-principal {
-        font-size: 2.2em;
-    }
-    
-    .proyecto-imagen-container {
-        height: 200px;
-    }
-    
-    .proyecto-contenido-nuevo {
-        padding: 20px;
-    }
-    
-    .proyecto-contenido-nuevo h3 {
-        font-size: 1.4em;
-    }
-    
-    .proyecto-descripcion-nueva {
-        font-size: 1em;
-    }
-    
-    .logro-item {
-        font-size: 0.9em;
-    }
-    
-    .habilidades-section-mejorada {
-        padding: 30px 15px;
-    }
-    
-    .categoria-icono {
-        font-size: 2.5em;
-    }
-}
-
-/* ===== SOBRE MÍ - DISEÑO DELICADO ===== */
+/* ===== PÁGINA SOBRE MÍ ===== */
 .pagina-sobre-mi {
     min-height: 100vh;
     background: linear-gradient(135deg, #000000 0%, #1a0000 50%, #000000 100%);
     padding: 100px 20px 80px;
+    margin-bottom: 0 !important;
+    padding-bottom: 40px;
 }
 
 .contenedor-sobre-mi {
     max-width: var(--ancho-maximo);
     margin: 0 auto;
+    padding-bottom: 0;
 }
 
-/* Header Mejorado */
 .sobre-mi-header-mejorado {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -946,7 +790,6 @@ body::before {
     text-shadow: 0 0 10px rgba(255, 0, 51, 0.3);
 }
 
-/* Títulos de sección */
 .titulo-seccion-delicado {
     font-family: var(--fuente-titulo);
     font-size: 2.5em;
@@ -969,7 +812,6 @@ body::before {
     box-shadow: 0 0 10px rgba(255, 0, 51, 0.3);
 }
 
-/* Filosofía */
 .seccion-filosofia-mejorada {
     margin-bottom: 100px;
 }
@@ -1041,7 +883,6 @@ body::before {
     opacity: 0.9;
 }
 
-/* Timeline */
 .seccion-journey-mejorada {
     margin-bottom: 100px;
 }
@@ -1131,7 +972,6 @@ body::before {
     transform: scale(1.08);
 }
 
-/* Íconos timeline */
 .timeline-fecha-delicado[data-year="2023"]::before {
     content: '🚀';
     font-size: 1.3em;
@@ -1179,7 +1019,6 @@ body::before {
     opacity: 0.9;
 }
 
-/* Inspiración */
 .seccion-inspiracion-mejorada {
     margin-bottom: 100px;
 }
@@ -1257,7 +1096,6 @@ body::before {
     text-align: center;
 }
 
-/* CTA */
 .seccion-cta-mejorada {
     background: linear-gradient(135deg, rgba(255, 0, 51, 0.1), rgba(204, 0, 51, 0.05));
     padding: 80px 40px;
@@ -1332,138 +1170,7 @@ body::before {
     box-shadow: 0 8px 25px rgba(255, 0, 51, 0.1);
 }
 
-/* ===== RESPONSIVE SOBRE MÍ ===== */
-@media (max-width: 968px) {
-    .sobre-mi-header-mejorado {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 40px;
-        padding: 40px 30px;
-    }
-    
-    .sobre-mi-intro-mejorada {
-        padding-right: 0;
-    }
-    
-    .filosofia-grid-mejorado {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .timeline-mejorado::before {
-        left: 20px;
-    }
-    
-    .timeline-item-delicado {
-        flex-direction: column;
-    }
-    
-    .timeline-fecha-delicado {
-        width: auto;
-        margin-right: 0;
-        margin-bottom: 20px;
-        align-self: flex-start;
-    }
-    
-    .inspiracion-grid-mejorado {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-    }
-    
-    .cta-buttons-delicados {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .btn-cta-delicado {
-        width: 100%;
-        max-width: 250px;
-    }
-}
-
-@media (max-width: 768px) {
-    .sobre-mi-header-mejorado {
-        padding: 30px 20px;
-        margin-bottom: 80px;
-    }
-    
-    .sobre-mi-foto-mejorada {
-        width: 150px;
-        height: 150px;
-        margin: 0 auto;
-    }
-    
-    .titulo-principal-delicado {
-        font-size: 2.5em;
-    }
-    
-    .titulo-seccion-delicado {
-        font-size: 2em;
-        margin-bottom: 50px;
-    }
-    
-    .filosofia-card-delicada {
-        padding: 40px 25px;
-    }
-    
-    .timeline-contenido-delicado {
-        padding: 25px;
-    }
-    
-    .inspiracion-item-delicado {
-        padding: 35px 25px;
-    }
-    
-    .inspiracion-icono {
-        font-size: 2.2em;
-    }
-    
-    .seccion-cta-mejorada {
-        padding: 60px 25px;
-    }
-    
-    .cta-contenido-delicado h2 {
-        font-size: 2em;
-    }
-}
-
-@media (max-width: 480px) {
-    .sobre-mi-header-mejorado {
-        padding: 25px 15px;
-    }
-    
-    .titulo-principal-delicado {
-        font-size: 2.2em;
-    }
-    
-    .subtitulo-destacado-delicado {
-        font-size: 1.1em;
-    }
-    
-    .filosofia-grid-mejorado,
-    .inspiracion-grid-mejorado {
-        grid-template-columns: 1fr;
-    }
-    
-    .timeline-mejorado::before {
-        left: 15px;
-    }
-    
-    .inspiracion-item-delicado {
-        padding: 30px 20px;
-    }
-    
-    .inspiracion-item-delicado h3 {
-        font-size: 1.2em;
-    }
-    
-    .seccion-cta-mejorada {
-        padding: 40px 20px;
-    }
-}
-
-
-/* ===== PÁGINA DE CONTACTO ELEGANTE ===== */
+/* ===== PÁGINA CONTACTO ===== */
 .pagina-contacto-elegante {
     min-height: 100vh;
     background: linear-gradient(135deg, #000000 0%, #1a0000 50%, #000000 100%);
@@ -1475,15 +1182,12 @@ body::before {
     margin: 0 auto;
 }
 
-/* Header de Contacto */
 .contacto-header-elegante {
     text-align: center;
     margin-bottom: 80px;
     padding: 0 20px;
 }
 
-
-/* ===== EFECTO TITULO HOLOGRÁFICO PARA CONTACTO ===== */
 .titulo-contacto-principal {
     font-family: var(--fuente-titulo);
     font-size: 3.5em;
@@ -1497,16 +1201,6 @@ body::before {
     animation: titleGlow 3s ease-in-out infinite alternate;
 }
 
-@keyframes titleGlow {
-    0% { 
-        text-shadow: 0 0 20px rgba(255, 0, 51, 0.5), 0 0 40px rgba(255, 0, 51, 0.3); 
-    }
-    100% { 
-        text-shadow: 0 0 30px rgba(255, 0, 51, 0.8), 0 0 60px rgba(255, 0, 51, 0.5), 0 0 80px rgba(255, 0, 51, 0.3); 
-    }
-}
-
-/* Línea decorativa opcional debajo del título */
 .titulo-contacto-principal::after {
     content: '';
     position: absolute;
@@ -1519,6 +1213,7 @@ body::before {
     border-radius: 2px;
     box-shadow: 0 0 15px rgba(255, 0, 51, 0.5);
 }
+
 .subtitulo-contacto {
     font-size: 1.3em;
     color: var(--color-texto);
@@ -1528,15 +1223,20 @@ body::before {
     opacity: 0.9;
 }
 
-/* Grid de Contenido */
 .contenido-contacto-grid {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
     gap: 60px;
-    align-items: start;
+    align-items: stretch;
 }
 
-/* Tarjetas Glass */
+.contacto-info-elegante,
+.formulario-contacto-elegante {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .tarjeta-contacto-glass,
 .tarjeta-formulario-glass {
     background: var(--glass-bg);
@@ -1547,6 +1247,9 @@ body::before {
     box-shadow: var(--glass-shadow);
     position: relative;
     overflow: hidden;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .tarjeta-contacto-glass::before,
@@ -1561,7 +1264,6 @@ body::before {
     box-shadow: 0 0 20px rgba(255, 0, 51, 0.3);
 }
 
-/* Información de Contacto */
 .contacto-header {
     display: flex;
     align-items: center;
@@ -1581,17 +1283,17 @@ body::before {
     text-shadow: var(--neon-glow);
 }
 
-/* Canales de Contacto Mejorados */
 .canales-contacto-mejorados {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 25px;
     margin-bottom: 50px;
+    flex: 1;
 }
 
 .canal-contacto-item {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 20px;
     padding: 25px;
     background: rgba(255, 255, 255, 0.03);
@@ -1600,6 +1302,7 @@ body::before {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    min-height: 90px;
 }
 
 .canal-contacto-item::before {
@@ -1673,13 +1376,13 @@ body::before {
     margin: 0;
 }
 
-/* Estado de Disponibilidad */
 .estado-disponibilidad {
     padding: 25px;
     background: rgba(255, 0, 51, 0.08);
     border-radius: 16px;
     border: 1px solid rgba(255, 0, 51, 0.2);
     text-align: center;
+    margin-top: 0;
 }
 
 .indicador-activo {
@@ -1712,7 +1415,6 @@ body::before {
     opacity: 0.9;
 }
 
-/* Formulario Elegante */
 .tarjeta-formulario-glass h2 {
     font-family: var(--fuente-titulo);
     font-size: 2.2em;
@@ -1746,35 +1448,33 @@ body::before {
     font-weight: 600;
     font-size: 1em;
 }
+
 .grupo-input:focus-within .label-elegante {
     color: var(--color-accent);
     text-shadow: 0 0 8px rgba(255, 0, 51, 0.3);
 }
 
-
 .input-elegante {
     width: 100%;
     padding: 16px 20px;
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 12px;
     color: var(--color-titulo);
     font-family: var(--fuente-principal);
     font-size: 1em;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .input-elegante:focus {
     outline: none;
-    border-color: rgba(255, 0, 51, 0.6); /* 🔥 Más intenso */
+    border-color: rgba(255, 0, 51, 0.6);
     box-shadow: 
-        0 0 0 2px rgba(255, 0, 51, 0.1),  /* 🔥 Sombra interna */
-        0 0 20px rgba(255, 0, 51, 0.2);   /* 🔥 Sombra externa */
+        0 0 0 2px rgba(255, 0, 51, 0.1),
+        0 0 20px rgba(255, 0, 51, 0.2);
     background: rgba(255, 255, 255, 0.08);
-    transform: translateY(-2px); /* 🔥 Efecto elevación sutil */
+    transform: translateY(-2px);
 }
 
 .textarea-elegante {
@@ -1782,7 +1482,6 @@ body::before {
     min-height: 120px;
 }
 
-/* Checkbox Elegante */
 .grupo-checkbox {
     margin: 10px 0;
 }
@@ -1831,7 +1530,6 @@ body::before {
     transform: translate(-50%, -50%);
 }
 
-/* Botón Elegante */
 .btn-enviar-elegante {
     background: linear-gradient(135deg, rgba(255, 0, 51, 0.15), rgba(204, 0, 51, 0.1));
     color: var(--color-accent);
@@ -1854,47 +1552,19 @@ body::before {
     overflow: hidden;
 }
 
-/* Eliminamos el efecto de barrido anterior */
-.btn-enviar-elegante::before {
-    display: none;
-}
-
 .btn-enviar-elegante:hover {
     transform: translateY(-2px) scale(1.02);
     background: linear-gradient(135deg, rgba(255, 0, 51, 0.25), rgba(204, 0, 51, 0.2));
     box-shadow: 
         0 8px 20px rgba(255, 0, 51, 0.25),
         0 0 0 1px rgba(255, 0, 51, 0.2);
-    animation: buttonPulse 2s infinite; /* 🔥 Efecto pulse continuo */
-}
-
-@keyframes buttonPulse {
-    0%, 100% { 
-        box-shadow: 
-            0 8px 20px rgba(255, 0, 51, 0.25),
-            0 0 0 1px rgba(255, 0, 51, 0.2);
-    }
-    50% { 
-        box-shadow: 
-            0 8px 25px rgba(255, 0, 51, 0.4), 
-            0 0 15px rgba(255, 0, 51, 0.2),
-            0 0 0 1px rgba(255, 0, 51, 0.3);
-    }
+    animation: buttonPulse 2s infinite;
 }
 
 .btn-enviar-elegante:hover .btn-icono {
     transform: scale(1.1);
     filter: drop-shadow(0 0 8px rgba(255, 0, 51, 0.5));
-    animation: iconFloat 1.5s ease-in-out infinite; /* 🔥 Flotación suave */
-}
-
-@keyframes iconFloat {
-    0%, 100% { 
-        transform: scale(1.1) translateY(0); 
-    }
-    50% { 
-        transform: scale(1.1) translateY(-2px); 
-    }
+    animation: iconFloat 1.5s ease-in-out infinite;
 }
 
 .btn-texto {
@@ -1910,209 +1580,16 @@ body::before {
     transition: all 0.3s ease;
 }
 
-
-
-/* ===== AJUSTE DE ALTURAS IGUALES ===== */
-.contenido-contacto-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 60px;
-    align-items: stretch; /* ¡IMPORTANTE! Esto iguala las alturas */
-}
-
-.contacto-info-elegante,
-.formulario-contacto-elegante {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.tarjeta-contacto-glass,
-.tarjeta-formulario-glass {
-    flex: 1; /* Hace que ambas tarjetas ocupen toda la altura disponible */
-    display: flex;
-    flex-direction: column;
-}
-
-/* Aseguramos que el contenido interno también use el espacio disponible */
-.canales-contacto-mejorados {
-    flex: 1;
-}
-
-.estado-disponibilidad {
-    margin-top: auto; /* Empuja este elemento hacia abajo */
-}
-
-/* VERSIÓN CON ESPACIOS FIJOS */
-.tarjeta-contacto-glass {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    gap: 30px; /* Espacio consistente entre todas las secciones */
-}
-
-.contacto-header {
-    margin-bottom: 0;
-}
-
-.canales-contacto-mejorados {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 25px; /* Espacio igual entre los 3 items de contacto */
-}
-
-.canal-contacto-item {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    min-height: 90px;
-}
-
-.estado-disponibilidad {
-    margin-top: 0;
-}
-
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 968px) {
-    .contenido-contacto-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    .tarjeta-contacto-glass,
-    .tarjeta-formulario-glass {
-        padding: 40px 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    .pagina-contacto-elegante {
-        padding: 80px 15px 60px;
-    }
-    
-    .titulo-contacto-principal {
-        font-size: 2.5em;
-    }
-    
-    .contacto-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
-    
-    .canal-contacto-item {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
-    
-    .tarjeta-contacto-glass,
-    .tarjeta-formulario-glass {
-        padding: 30px 25px;
-    }
-}
-
-@media (max-width: 480px) {
-    .titulo-contacto-principal {
-        font-size: 2.2em;
-    }
-    
-    .tarjeta-contacto-glass,
-    .tarjeta-formulario-glass {
-        padding: 25px 20px;
-    }
-    
-    .btn-enviar-elegante {
-        padding: 16px 30px;
-    }
-}
-
-/* ===== FIX PARA MÓVILES PEQUEÑOS (Samsung A04) ===== */
-@media (max-width: 480px) {
-    .pagina-contacto-elegante {
-        padding: 80px 15px 40px;
-    }
-    
-    .contenedor-contacto-elegante {
-        padding: 0 10px;
-    }
-    
-    .tarjeta-contacto-glass,
-    .tarjeta-formulario-glass {
-        padding: 25px 20px;
-        margin: 0 -5px;
-        border-radius: 16px;
-    }
-    
-    .contenido-contacto-grid {
-        gap: 25px;
-    }
-    
-    .contacto-header-elegante {
-        margin-bottom: 50px;
-        padding: 0 10px;
-    }
-    
-    .titulo-contacto-principal {
-        font-size: 2.2em;
-        line-height: 1.2;
-    }
-    
-    .subtitulo-contacto {
-        font-size: 1.1em;
-        padding: 0 5px;
-    }
-    
-    /* Ajustes específicos para las tarjetas de contacto */
-    .canal-contacto-item {
-        padding: 20px 15px;
-        margin: 0 -5px;
-    }
-    
-    .canal-icono {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5em;
-    }
-    
-    /* Asegurar que el contenido no se salga */
-    .footer-elegante {
-        margin-top: 40px;
-    }
-}
-
-/* Fix extra para pantallas muy pequeñas */
-@media (max-width: 360px) {
-    .pagina-contacto-elegante {
-        padding: 70px 10px 30px;
-    }
-    
-    .tarjeta-contacto-glass,
-    .tarjeta-formulario-glass {
-        padding: 20px 15px;
-        margin: 0 -3px;
-    }
-    
-    .titulo-contacto-principal {
-        font-size: 2em;
-    }
-    
-    .btn-enviar-elegante {
-        padding: 16px 20px;
-        font-size: 1em;
-    }
-}
-/* ===== FOOTER ELEGANTE ===== */
+/* ===== FOOTER ===== */
 .footer-elegante {
     background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(10px); /* 🔥 CAMBIO AQUÍ - de 20px a 10px */
-    -webkit-backdrop-filter: blur(10px); /* 🔥 Y esta línea nueva también */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-top: 1px solid var(--color-borde);
-    margin-top: 100px;
+    margin-top: 0;
     position: relative;
 }
+
 .footer-elegante::before {
     content: '';
     position: absolute;
@@ -2130,7 +1607,6 @@ body::before {
     padding: 60px 40px 30px;
 }
 
-/* Sección Superior */
 .footer-superior {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1.5fr;
@@ -2141,9 +1617,19 @@ body::before {
 .footer-brand .footer-logo {
     font-family: var(--fuente-titulo);
     font-size: 1.8em;
-    color: var(--color-titulo);
     margin-bottom: 20px;
-    text-shadow: var(--neon-glow);
+    background: linear-gradient(135deg, #ffffff 0%, var(--color-accent) 50%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+    transition: all 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: scale(1.05);
+    animation-duration: 1.5s;
 }
 
 .footer-descripcion {
@@ -2213,7 +1699,6 @@ body::before {
     width: 20px;
 }
 
-/* Contacto Footer - VERSIÓN SIMPLIFICADA */
 .footer-contacto-link {
     display: flex;
     align-items: center;
@@ -2276,7 +1761,6 @@ body::before {
     filter: drop-shadow(0 0 8px rgba(255, 0, 51, 0.6));
 }
 
-/* Tooltips para redes sociales */
 .social-link::after {
     content: attr(aria-label);
     position: absolute;
@@ -2300,7 +1784,6 @@ body::before {
     bottom: -30px;
 }
 
-/* Separador */
 .footer-separador {
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(255, 0, 51, 0.3), transparent);
@@ -2308,7 +1791,6 @@ body::before {
     box-shadow: 0 0 10px rgba(255, 0, 51, 0.1);
 }
 
-/* Sección Inferior */
 .footer-inferior {
     display: flex;
     justify-content: center;
@@ -2320,39 +1802,10 @@ body::before {
 }
 
 .footer-copyright p {
-    margin: 0 auto; /* 🔥 Centrado perfecto */
+    margin: 0 auto;
 }
 
-.footer-logo {
-    font-family: var(--fuente-titulo);
-    font-size: 1.8em;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, #ffffff 0%, var(--color-accent) 50%, #ffffff 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    background-size: 200% 100%;
-    animation: shimmer 3s ease-in-out infinite;
-    transition: all 0.3s ease;
-}
-
-@keyframes shimmer {
-    0%, 100% {
-        background-position: 0% 50%;
-        text-shadow: 0 0 10px rgba(255, 0, 51, 0.3);
-    }
-    50% {
-        background-position: 100% 50%;
-        text-shadow: 0 0 20px rgba(255, 0, 51, 0.5);
-    }
-}
-
-.footer-logo:hover {
-    transform: scale(1.05);
-    animation-duration: 1.5s;
-}
-
-/* ===== RESPONSIVE FOOTER ===== */
+/* ===== MEDIA QUERIES RESPONSIVE ===== */
 @media (max-width: 968px) {
     .footer-superior {
         grid-template-columns: 1fr 1fr;
@@ -2362,9 +1815,161 @@ body::before {
     .footer-brand {
         grid-column: 1 / -1;
     }
+    
+    .grid-proyectos {
+        gap: 40px;
+        margin-bottom: 80px;
+    }
+    
+    .proyecto-contenido-nuevo {
+        padding: 30px;
+    }
+    
+    .proyecto-contenido-nuevo h3 {
+        font-size: 1.8em;
+    }
+    
+    .proyecto-logros-mejorados {
+        grid-template-columns: 1fr;
+    }
+    
+    .habilidades-section-mejorada {
+        padding: 60px 30px;
+    }
+    
+    .habilidades-grid-mejorado {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .contenido-contacto-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .tarjeta-contacto-glass,
+    .tarjeta-formulario-glass {
+        padding: 40px 30px;
+    }
+    
+    .sobre-mi-header-mejorado {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+        padding: 40px 30px;
+    }
+    
+    .sobre-mi-intro-mejorada {
+        padding-right: 0;
+    }
+    
+    .filosofia-grid-mejorado {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .timeline-mejorado::before {
+        left: 20px;
+    }
+    
+    .timeline-item-delicado {
+        flex-direction: column;
+    }
+    
+    .timeline-fecha-delicado {
+        width: auto;
+        margin-right: 0;
+        margin-bottom: 20px;
+        align-self: flex-start;
+    }
+    
+    .inspiracion-grid-mejorado {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+    
+    .cta-buttons-delicados {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-cta-delicado {
+        width: 100%;
+        max-width: 250px;
+    }
 }
 
 @media (max-width: 768px) {
+    .navegacion {
+        padding: 0 20px;
+    }
+    
+    .menu-hamburguesa {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 60px;
+        gap: 30px;
+        transition: left 0.3s ease;
+        border-right: 1px solid var(--color-borde);
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-link {
+        font-size: 1.3em;
+        padding: 10px 0;
+    }
+    
+    .header-principal-nav.scrolled .nav-menu {
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+
+    .presentacion-libre {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: var(--padding-movil);
+        margin: 90px auto 30px;
+        padding-top: 20px;
+    }
+    
+    .header-principal,
+    .frase-inicial,
+    .texto-principal,
+    .destacado-bloque {
+        grid-column: 1;
+        transform: none;
+    }
+    
+    .header-principal {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .destacado {
+        height: 180px;
+        padding: 20px;
+    }
+    
+    .titulo-container h1 {
+        font-size: 2.5em;
+    }
+    
     .contenedor-footer {
         padding: 50px 20px 25px;
     }
@@ -2381,16 +1986,161 @@ body::before {
         text-align: center;
     }
     
-    .footer-legal {
-        gap: 20px;
-    }
-    
     .footer-social {
         justify-content: center;
+    }
+    
+    .proyectos-header {
+        margin-bottom: 60px;
+    }
+    
+    .titulo-principal {
+        font-size: 2.5em;
+    }
+    
+    .descripcion-proyectos {
+        font-size: 1.1em;
+        padding: 0 10px;
+    }
+    
+    .proyecto-imagen-container {
+        height: 250px;
+    }
+    
+    .proyecto-contenido-nuevo {
+        padding: 25px;
+    }
+    
+    .proyecto-contenido-nuevo h3 {
+        font-size: 1.6em;
+    }
+    
+    .tecnologias-mejoradas {
+        justify-content: center;
+    }
+    
+    .proyecto-acciones {
+        justify-content: center;
+    }
+    
+    .btn-proyecto-elegante {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .habilidades-section-mejorada {
+        padding: 40px 20px;
+        margin-top: 40px;
+    }
+    
+    .habilidades-section-mejorada h2 {
+        font-size: 2em;
+        margin-bottom: 40px;
+    }
+    
+    .pagina-contacto-elegante {
+        padding: 80px 15px 60px;
+    }
+    
+    .titulo-contacto-principal {
+        font-size: 2.5em;
+    }
+    
+    .contacto-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .canal-contacto-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .tarjeta-contacto-glass,
+    .tarjeta-formulario-glass {
+        padding: 30px 25px;
+    }
+    
+    .sobre-mi-header-mejorado {
+        padding: 30px 20px;
+        margin-bottom: 80px;
+    }
+    
+    .sobre-mi-foto-mejorada {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+    }
+    
+    .titulo-principal-delicado {
+        font-size: 2.5em;
+    }
+    
+    .titulo-seccion-delicado {
+        font-size: 2em;
+        margin-bottom: 50px;
+    }
+    
+    .filosofia-card-delicada {
+        padding: 40px 25px;
+    }
+    
+    .timeline-contenido-delicado {
+        padding: 25px;
+    }
+    
+    .inspiracion-item-delicado {
+        padding: 35px 25px;
+    }
+    
+    .inspiracion-icono {
+        font-size: 2.2em;
+    }
+    
+    .seccion-cta-mejorada {
+        padding: 60px 25px;
+    }
+    
+    .cta-contenido-delicado h2 {
+        font-size: 2em;
     }
 }
 
 @media (max-width: 480px) {
+    .titulo-principal {
+        font-size: 2.2em;
+    }
+    
+    .proyecto-imagen-container {
+        height: 200px;
+    }
+    
+    .proyecto-contenido-nuevo {
+        padding: 20px;
+    }
+    
+    .proyecto-contenido-nuevo h3 {
+        font-size: 1.4em;
+    }
+    
+    .proyecto-descripcion-nueva {
+        font-size: 1em;
+    }
+    
+    .logro-item {
+        font-size: 0.9em;
+    }
+    
+    .habilidades-section-mejorada {
+        padding: 30px 15px;
+    }
+    
+    .categoria-icono {
+        font-size: 2.5em;
+    }
+    
     .footer-legal {
         flex-direction: column;
         gap: 10px;
@@ -2404,34 +2154,120 @@ body::before {
     .social-icono {
         font-size: 1.2em;
     }
+    
+    .titulo-contacto-principal {
+        font-size: 2.2em;
+    }
+    
+    .tarjeta-contacto-glass,
+    .tarjeta-formulario-glass {
+        padding: 25px 20px;
+    }
+    
+    .btn-enviar-elegante {
+        padding: 16px 30px;
+    }
+    
+    .pagina-contacto-elegante {
+        padding: 80px 15px 40px;
+    }
+    
+    .contenedor-contacto-elegante {
+        padding: 0 10px;
+    }
+    
+    .tarjeta-contacto-glass,
+    .tarjeta-formulario-glass {
+        padding: 25px 20px;
+        margin: 0 -5px;
+        border-radius: 16px;
+    }
+    
+    .contenido-contacto-grid {
+        gap: 25px;
+    }
+    
+    .contacto-header-elegante {
+        margin-bottom: 50px;
+        padding: 0 10px;
+    }
+    
+    .titulo-contacto-principal {
+        font-size: 2.2em;
+        line-height: 1.2;
+    }
+    
+    .subtitulo-contacto {
+        font-size: 1.1em;
+        padding: 0 5px;
+    }
+    
+    .canal-contacto-item {
+        padding: 20px 15px;
+        margin: 0 -5px;
+    }
+    
+    .canal-icono {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5em;
+    }
+    
+    .footer-elegante {
+        margin-top: 40px;
+    }
+    
+    .sobre-mi-header-mejorado {
+        padding: 25px 15px;
+    }
+    
+    .titulo-principal-delicado {
+        font-size: 2.2em;
+    }
+    
+    .subtitulo-destacado-delicado {
+        font-size: 1.1em;
+    }
+    
+    .filosofia-grid-mejorado,
+    .inspiracion-grid-mejorado {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline-mejorado::before {
+        left: 15px;
+    }
+    
+    .inspiracion-item-delicado {
+        padding: 30px 20px;
+    }
+    
+    .inspiracion-item-delicado h3 {
+        font-size: 1.2em;
+    }
+    
+    .seccion-cta-mejorada {
+        padding: 40px 20px;
+    }
 }
 
-
-/* ===== AJUSTES ESPECÍFICOS PARA PROYECTOS, SOBRE MÍ Y CONTACTO ===== */
-
-/* Página PROYECTOS */
-.pagina-proyectos {
-    margin-bottom: 0 !important;
-    padding-bottom: 40px;
-}
-
-.contenedor-proyectos {
-    padding-bottom: 0;
-}
-
-/* Página SOBRE MÍ */
-.pagina-sobre-mi {
-    margin-bottom: 0 !important;
-    padding-bottom: 40px;
-}
-
-.contenedor-sobre-mi {
-    padding-bottom: 0;
-}
-
-
-
-/* Aseguramos que el footer quede pegado */
-.footer-elegante {
-    margin-top: 0;
+@media (max-width: 360px) {
+    .pagina-contacto-elegante {
+        padding: 70px 10px 30px;
+    }
+    
+    .tarjeta-contacto-glass,
+    .tarjeta-formulario-glass {
+        padding: 20px 15px;
+        margin: 0 -3px;
+    }
+    
+    .titulo-contacto-principal {
+        font-size: 2em;
+    }
+    
+    .btn-enviar-elegante {
+        padding: 16px 20px;
+        font-size: 1em;
+    }
 }
