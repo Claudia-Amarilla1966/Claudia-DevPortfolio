@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Claudia Amarilla · Desarrolladora Web</title>
+    <meta name="description"
+        content="Claudia Amarilla - Desarrolladora Web Freelance. Creo sitios funcionales, cálidos y humanos que reflejan identidad y propósito.">
+    <title>Claudia Amarilla · Desarrolladora Web Freelance</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Quicksand&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
@@ -18,12 +20,12 @@
                 <a href="index.html" class="logo">Claudia Amarilla</a>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html"     class="nav-link">Inicio</a></li>
+                <li><a href="index.html" class="nav-link active">Inicio</a></li>
                 <li><a href="proyectos.html" class="nav-link">Proyectos</a></li>
-                <li><a href="sobre-mi.html"  class="nav-link">Sobre Mí</a></li>
-                <li><a href="contacto.html"  class="nav-link">Contacto</a></li>
+                <li><a href="sobre-mi.html" class="nav-link">Sobre Mí</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
             </ul>
-            <div class="menu-hamburguesa">
+            <div class="menu-hamburguesa" aria-label="Menú de navegación">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -31,41 +33,123 @@
         </nav>
     </header>
 
-    <section class="presentacion-libre">
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="presentacion-libre">
         <!-- Header unificado -->
-        <div class="bloque header-principal">
+        <header class="bloque header-principal" role="banner">
             <div class="foto-container">
-                <img src="./imagenes/claudia.jpg" alt="Claudia" loading="lazy" class="foto-perfil" />
+                <img src="./imagenes/claudia.jpg" alt="Claudia Amarilla - Desarrolladora Web" loading="eager"
+                    class="foto-perfil" />
             </div>
             <div class="titulo-container">
                 <h1>Hola, soy Claudia Amarilla</h1>
                 <p class="subtitulo">Desarrolladora web freelance</p>
             </div>
-        </div>
+        </header>
 
         <!-- Contenido principal -->
-        <div class="bloque frase-inicial">
+        <section class="bloque frase-inicial" aria-label="Frase personal">
             <p>“Cada proyecto que creo es una forma de acompañar, de escuchar, de construir con sentido.”</p>
-        </div>
+        </section>
 
-        <div class="bloque texto-principal">
+        <section class="bloque texto-principal" aria-label="Presentación profesional">
             <p>
                 Especializada en crear sitios funcionales, cálidos y humanos.
                 Cada proyecto que realizo nace del encuentro entre lo técnico y lo emocional, buscando soluciones
                 simples que reflejen identidad y propósito.
             </p>
-        </div>
+        </section>
 
-        <div class="bloque destacado-bloque">
-            <div class="destacado">
+        <section class="bloque destacado-bloque" aria-label="Pensamientos destacados">
+            <div class="destacado" tabindex="0">
                 <p id="texto-destacado" aria-live="polite"></p>
             </div>
+        </section>
+    </main>
+
+    <!-- FOOTER ELEGANTE - Versión simplificada -->
+    <footer class="footer-elegante">
+        <div class="contenedor-footer">
+            <!-- Sección Superior del Footer -->
+            <div class="footer-superior">
+                <div class="footer-brand">
+                    <h3 class="footer-logo">Claudia Amarilla</h3>
+                    <p class="footer-descripcion">
+                        Desarrolladora web freelance creando sitios funcionales, cálidos y humanos con propósito.
+                    </p>
+                </div>
+
+                <!-- Enlaces Rápidos -->
+                <div class="footer-seccion">
+                    <h4 class="footer-titulo">Navegación</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link">Inicio</a></li>
+                        <li><a href="proyectos.html" class="footer-link">Proyectos</a></li>
+                        <li><a href="sobre-mi.html" class="footer-link">Sobre Mí</a></li>
+                        <li><a href="contacto.html" class="footer-link">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Servicios -->
+                <div class="footer-seccion">
+                    <h4 class="footer-titulo">Servicios</h4>
+                    <ul class="footer-links">
+                        <li><a href="proyectos.html" class="footer-link">Desarrollo Web</a></li>
+                        <li><a href="proyectos.html" class="footer-link">Diseño Responsive</a></li>
+                        <li><a href="proyectos.html" class="footer-link">Optimización SEO</a></li>
+                        <li><a href="contacto.html" class="footer-link">Consultoría</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto Footer - VERSIÓN SIMPLIFICADA -->
+                <div class="footer-seccion">
+                    <h4 class="footer-titulo">Conectemos</h4>
+                    <div class="footer-contacto">
+                        <!-- Email -->
+                        <a href="mailto:creativwebclaudia@.gmail" class="footer-contacto-link">
+                            <span class="contacto-icono">📧</span>
+                            creativwebclaudia@.gmail
+                        </a>
+
+                        <!-- Teléfono -->
+                        <a href="tel:+5491132461728" class="footer-contacto-link">
+                            <span class="contacto-icono">📞</span>
+                            +54 9 11 3246-1728
+                        </a>
+
+                        <!-- Redes Sociales SIMPLIFICADAS -->
+                        <div class="footer-social">
+                            <!-- LinkedIn -->
+                            <a href="https://www.linkedin.com/in/claudia-amarilla-709391234" class="social-link"
+                                aria-label="LinkedIn" target="_blank">
+                                <span class="social-icono">💼</span>
+                            </a>
+                            <!-- WhatsApp -->
+                            <a href="https://wa.me/5491132461728" class="social-link" aria-label="WhatsApp"
+                                target="_blank">
+                                <span class="social-icono">💬</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Línea Separadora -->
+            <div class="footer-separador"></div>
+
+            <!-- Sección Inferior del Footer -->
+            <div class="footer-inferior">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 Claudia Amarilla - Todos los derechos reservados -</p>
+                </div>
+
+            </div>
         </div>
-    </section>
+    </footer>
 
     <script src="script.js"></script>
     <script>
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             document.body.classList.add('loaded');
         });
     </script>
